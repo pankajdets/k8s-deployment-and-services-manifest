@@ -23,7 +23,7 @@ spec: #inside your deployment we need to provide spec how this deployment api wi
             env:
               - name: MYSQL_ROOT_PASSWORD 
                 valueFrom:
-                  secretkeyRef:
+                  secretKeyRef:
                 #this two value come from mysqlsecret.yml 
                     name: my-db-secret #this is the name of the secret
                     key: db-password #data of the secret 
@@ -33,7 +33,7 @@ spec: #inside your deployment we need to provide spec how this deployment api wi
               #this volume mount is inside my container
             volumeMounts:
             - name: mysql-persistent-volume  
-                mountPath: /var/lib/mysql 
+              mountPath: /var/lib/mysql 
                 #the configmap i need to run inside your container. to update my sql
             - name: usermgmt-dbscript 
               mountPath: /docker-entrypoint-initdb.d #this defination is given in hub.docker.com
@@ -47,5 +47,3 @@ spec: #inside your deployment we need to provide spec how this deployment api wi
             configMap: 
               name: usermgmt-dbcreation-script
         
-
-            
