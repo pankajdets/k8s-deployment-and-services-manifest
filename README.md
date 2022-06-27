@@ -29,6 +29,25 @@ Commands
   338  kubectl get secret
 
   339  kubectl describe secret my-db-secret
+  
+  //////////MYSQL Deployment command//////////////////////////////////////////////////
+  //////////////////myql-deployment.yml   file//////////////////////////////
+  
+ 
+  297  kubectl apply -f mysql-deployment.yml
+  298  git pull
+  299  kubectl apply -f mysql-deployment.yml
+  300  kubectl get deploy
+  301  kubectl describe deploy mysql
+  302  kubectl get pod
+  303  kubectl exec -it nameofthepod --bin-bash
+  304  mysql -u root -p
+  305  kubectlt get pod
+  306  kubectl get pod
+  307  kubectl exec -it mysql-deployment-5495c77f58-976mm /bin/bash
+  308  kubectl delete deploy myapp-deployment
+  309  history
+
 
 
 
