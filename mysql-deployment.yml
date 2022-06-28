@@ -17,7 +17,7 @@ spec: #inside your deployment we need to provide spec how this deployment api wi
       labels: 
         app: mysql  #this label should match with pod label. 
     spec: #we define container spec
-        containers:
+       containers:
           - name: mysql  
             image: mysql:5.6 
             env:
