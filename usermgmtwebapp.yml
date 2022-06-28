@@ -18,11 +18,7 @@ spec: #inside your deployment we need to provide spec how this deployment api wi
       labels: 
         app: usermgmt-webapp  #this label should match with pod label. 
     spec: #we define container spec
-        initContainers:
-          - name: init-db
-            image: busybox:1.31
-            command: ['sh', '-c', 'echo -e "Checking for the availability of MySQL Server deployment"; while ! nc -z mysql 3306; do sleep 1; printf "-"; done; echo -e "  >> MySQL DB Server has started";']      
-
+        
         containers:
           - name: usermgmt-webapp  
             image: stacksimplify/kube-usermgmt-webapp:1.0.0-MySQLDB
@@ -31,7 +27,7 @@ spec: #inside your deployment we need to provide spec how this deployment api wi
                 name: mysql 
             env:
               - name: DB_HOSTNAME
-                value: "mysql-service"
+                value: 192.168.91.35
               - name: DB_PORT
                 value: "3306"
               - name: DB_NAME 
